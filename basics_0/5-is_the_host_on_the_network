@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# Bash script that pings an IP address passed as an argument.
+# This script pings an IP address passed as an argument
 
-# Check if the number of command-line arguments is not equal to 1 (-ne = not equal to)
-if [ -z "$1" ]
-then
-# If the number of arguments is not equal to 1, display a usage message.
-	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
-else
-	# Execute the 'ping' command with 5 ICMP packets sent to the specified IP address.
-	ping -c 5 "$ip_address"
+# Check if argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+  exit 1
 fi
+
+# Ping the provided IP address 5 times
+ping -c 5 "$1"
